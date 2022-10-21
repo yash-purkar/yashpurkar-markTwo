@@ -33,7 +33,7 @@ var qAn = [
   ,
   {
     question: "IPL Stands For? ",
-    answer: "indian premiere league"
+    answer: "indian premier league"
   }
   ,
   {
