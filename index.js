@@ -29,22 +29,22 @@ var questionAnswersLevelOne = [
 // questions and answers for level two.     mouse, cameras, scanners, keyboards,
 var questionAnswersLevelTwo = [
   {
-    question: "\nWhich of the following is an output device?  \n A : Keyboard \n B : Camera \n C : Printer \n D : Mouse \n \n  ",
+    question: "\n1.Which of the following is an output device?  \n A : Keyboard \n B : Camera \n C : Printer \n D : Mouse \n \n  ",
     answer: "C"
   },
   {
-    question: "Which device is used for entering data into a computer?  \n A : Printer \n B : Mouse \n C : Scanner \n D : Keyboard \n \n  ",
+    question: "2.Which device is used for entering data into a computer?  \n A : Printer \n B : Mouse \n C : Scanner \n D : Keyboard \n \n  ",
     answer: "D"
   },
   {
-    question: "Which is not the operating system of a computer?  \n A : Windows \n B : Linux \n C : Android \n D : macOS \n \n  ",
+    question: "3.Which is not the operating system of a computer?  \n A : Windows \n B : Linux \n C : Android \n D : macOS \n \n  ",
     answer: "C"
   }, {
-    question: "Is Ubuntu operating system? \n \n A : Yes \n B : No \n \n ",
+    question: "4.Is Ubuntu operating system? \n \n A : Yes \n B : No \n \n ",
     answer: "A"
   },
   {
-    question: "Is HP indian company? \n \n A : Yes \n B : No \n \n ",
+    question: "5.Is HP indian company? \n \n A : Yes \n B : No \n \n ",
     answer: "B"
   }
 
@@ -88,7 +88,7 @@ if (yesNo.toUpperCase() === "YES") {
     else {
       console.log(chalk.red("Ohh! You Guessed Wrong😔\n"));
     }
-    console.log(chalk.bgGrey("Current Score: ", score, "\n"));
+    console.log(chalk.yellow.bold("Current Score: ", score, "\n"));
     console.log("------------------------------------\n");
   }
 
@@ -118,7 +118,7 @@ if (yesNo.toUpperCase() === "YES") {
     for (i = 0; i < highScores.length; i++) {
       console.log(chalk.blue(highScores[i].name + " : " + highScores[i].score + "\n"))
     }
-    console.log(chalk.magenta("If you have reached a high point, send a screenshot to me I'll update it."))
+    console.log(chalk.magenta("If you have reached a highscore, send a screenshot to me I'll update it."))
     console.log(chalk.yellow.bold("Thank you for playing the game😊"))
   }
 
