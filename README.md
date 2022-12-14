@@ -9,4 +9,4 @@ I have made this app to check how do you know about computer? <br/>
 <li>Chalk</li>
 </ul>
 
-<a href="https://replit.com/@YashPurkar1/markTwo?embed=1&output=1">Click here</a> to Play
+<a href="https://replit.com/@YashPurkar1/marktwo-practice?embed=1&output=1">Click here</a> to Play
