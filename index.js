@@ -58,8 +58,7 @@ console.log(chalk.cyan("\nWelcome " + userName.toUpperCase() + "😊 into quiz a
 
 // exit game or not
 var yesNo = readlineSync.question(chalk.magenta("Are you ready? (yes/no): "));
-// chalk.green('Right!')
-if (yesNo === "yes") {
+if (yesNo.toUpperCase() === "YES") {
   console.log(chalk.red("\nNote:\n 1.This is the level one of the quiz. \n 2. You have to score 5 to go into level two.\n 3.select A, B, C or D for the answers. \n"));
 
   for (var i = 0; i < questionAnswersLevelOne.length; i++) {
