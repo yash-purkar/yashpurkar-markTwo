@@ -5,7 +5,7 @@ var questionAnswersLevelOne = [
     answer: "C"
   },
   {
-    question: "2.Shortcut Key for copying the text? \n \n A : ctrl+z \n B : ctrl+v \n C : ctrl+d \n D : ctrl+c \n \n ",
+    question: "2.Shortcut Key for copying the text?  \n A : ctrl+z \n B : ctrl+v \n C : ctrl+d \n D : ctrl+c \n \n ",
     answer: "D"
   },
   {
