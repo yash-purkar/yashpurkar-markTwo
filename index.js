@@ -1,136 +1,52 @@
 var readlineSync = require('readline-sync');
-
-const chalk = require('chalk');
-// console.log(chalk.blue('Hello world!')); 
-
-var questionAnswersLevelOne = [
-  {
-    question: "1.Shortcut key for selecting the text? \n A : ctrl+c \n B : ctrl+x \n C : ctrl+a \n D : ctrl+v \n \n ",
-    answer: "C"
-  },
-  {
-    question: "2.Shortcut Key for copying the text?  \n A : ctrl+z \n B : ctrl+v \n C : ctrl+d \n D : ctrl+c \n \n ",
-    answer: "D"
-  },
-  {
-    question: "3.Shortcut key for pasting the text?  \n A : ctrl+s \n B : ctrl+a \n C : ctrl+v \n D : ctrl+z \n \n ",
-    answer: "C"
-  },
-  {
-    question: "4.Shortcut key for cutting the text?  \n A : ctrl+x \n B : ctrl+v \n C : ctrl+c \n D : ctrl+a \n \n ",
-    answer: "A"
-  },
-  {
-    question: "5.Shortcut key for saving the current document?  \n A : ctrl+x \n B : ctrl+v \n C : ctrl+z \n D : ctrl+s \n \n ",
-    answer: "D"
-  }
-];
-
-// questions and answers for level two.     mouse, cameras, scanners, keyboards,
-var questionAnswersLevelTwo = [
-  {
-    question: "\n1.Which of the following is an output device?  \n A : Keyboard \n B : Camera \n C : Printer \n D : Mouse \n \n  ",
-    answer: "C"
-  },
-  {
-    question: "2.Which device is used for entering data into a computer?  \n A : Printer \n B : Mouse \n C : Scanner \n D : Keyboard \n \n  ",
-    answer: "D"
-  },
-  {
-    question: "3.Which is not the operating system of a computer?  \n A : Windows \n B : Linux \n C : Android \n D : macOS \n \n  ",
-    answer: "C"
-  }, {
-    question: "4.Is Ubuntu operating system? \n \n A : Yes \n B : No \n \n ",
-    answer: "A"
-  },
-  {
-    question: "5.Is HP indian company? \n \n A : Yes \n B : No \n \n ",
-    answer: "B"
-  }
-
-];
-
-var highScores = [
-  {
-    name: "Yash",
-    score: "10/10"
-  },
-  {
-    name: "Rahul",
-    score: "9/10"
-  }
-]
-
-//***
 var score = 0;
 
-var userName = readlineSync.question(chalk.blue("What is your Name? "));
-console.log(chalk.cyan("\nWelcome " + userName.toUpperCase() + "😊 into quiz about shortcut keys of computer💻💻\n"));
+var userName = readlineSync.question("What's Your Name? ")
+console.log("Welcome😊 " + userName + " To Quiz About CRICKET... \n")
 
-// exit game or not
-var yesNo = readlineSync.question(chalk.magenta("Are you ready? (yes/no): "));
+function play(question, answer) {
+  var userAns = readlineSync.question(question);
 
-if (yesNo.toUpperCase() === "YES") {
-  console.log(chalk.red("\nNote:\n 1.This is the level one of the quiz. \n 2. You have to score 5 to go into level two.\n 3.select A, B, C or D for the answers. \n"));
-
-  for (var i = 0; i < questionAnswersLevelOne.length; i++) {
-    playTheGame(questionAnswersLevelOne[i].question, questionAnswersLevelOne[i].answer);
+  if (userAns.toUpperCase() === answer.toUpperCase()) {
+    console.log("Yes It's Correct🤩 ");
+    score += 1;
+  } else {
+    console.log("No It's Wrong😟 ")
   }
-
-  // main Function
-  function playTheGame(question, answer) {
-    var userAnswer = readlineSync.question(question);
-
-    if (userAnswer.toUpperCase() === answer) {
-      console.log(chalk.green("\nYeyy! You Guessed Correct🤩\n"));
-      score++;
-    }
-    else {
-      console.log(chalk.red("Ohh! You Guessed Wrong😔\n"));
-    }
-    console.log(chalk.yellow.bold("Current Score: ", score, "\n"));
-    console.log("------------------------------------\n");
-  }
-
-  // ***
-  var levelTwoScore = 0;
-  if (score >= 5) {
-    console.log(chalk.blue("CONGRATULATIONS🤩 " + userName.toUpperCase() + " YOU HAVE PASSED THE LEVEL ONE😎 \n \n "))
-    console.log(chalk.magenta("Welcome to the Level Two of the quiz."));
-    for (var i = 0; i < questionAnswersLevelTwo.length; i++) {
-      levelTwoScore++;
-      playTheGame(questionAnswersLevelTwo[i].question, questionAnswersLevelTwo[i].answer);
-    }
-    console.log(chalk.cyan("You Scored: " + levelTwoScore + " in to thee level Two.\n"));
-  }
-  else {
-    var requireScore = 5 - score;
-    console.log(chalk.cyan("You Scored: " + score + "😐 You need " + requireScore + " more points to go into the Level Two."));
-
-  }
-
-  // ***
-
-
-  if (score > 5) {
-    console.log(chalk.green("Congratulations🤩 You Scored: " + score + "/10"));
-    console.log(chalk.yellow("\nHighscores\n"))
-    for (i = 0; i < highScores.length; i++) {
-      console.log(chalk.blue(highScores[i].name + " : " + highScores[i].score + "\n"))
-    }
-    console.log(chalk.magenta("If you have reached a highscore, send a screenshot to me I'll update it."))
-    console.log(chalk.yellow.bold("Thank you for playing the game😊"))
-  }
-
-  else {
-    console.log(chalk.magenta("You Scored😐: " + score + "/10"));
-  }
-
-
+  console.log("Current Score Is : ", score)
+  console.log("____________________")
 }
 
-else {
-  console.log(chalk.red("\n" + userName.toUpperCase() + " You are out from the game!!!"))
+var qAn = [
+  {
+    question: "How Many Players Can Play The Cricket? ",
+    answer: "11"
+  },
+  {
+    question: "What Is The Color Of The Indian team's Uniform?  ",
+    answer: "blue"
+  },
+  {
+    question: "Is Sachin Tendulkar Batsman? ",
+    answer: "yes"
+  }
+  ,
+  {
+    question: "IPL Stands For? ",
+    answer: "indian premier league"
+  }
+  ,
+  {
+    question: "When India Was Won First World Cup? ",
+    answer: "1983"
+  }
+]
+for (var i = 0; i < qAn.length; i++) {
+  play(qAn[i].question, qAn[i].answer)
 }
 
-
+if (score > 0) {
+  console.log("CONGRATULATION YOU SCORED💥🤩 : " + score + "/5");
+} else {
+  console.log("Your Score Is " + score + "/5 You Don't Know About Cricket🙄");
+}
