@@ -1,4 +1,8 @@
 var readlineSync = require('readline-sync');
+
+const chalk = require('chalk');
+// console.log(chalk.blue('Hello world!')); 
+
 var questionAnswersLevelOne = [
   {
     question: "1.Shortcut key for selecting the text? \n A : ctrl+c \n B : ctrl+x \n C : ctrl+a \n D : ctrl+v \n \n ",
@@ -49,14 +53,14 @@ var questionAnswersLevelTwo = [
 //***
 var score = 0;
 
-var userName = readlineSync.question("What is your Name? ");
-console.log("\nWelcome " + userName.toUpperCase() + "😊 into quiz about shortcut keys of computer💻💻\n");
+var userName = readlineSync.question(chalk.blue("What is your Name? "));
+console.log(chalk.cyan("\nWelcome " + userName.toUpperCase() + "😊 into quiz about shortcut keys of computer💻💻\n"));
 
 // exit game or not
-var yesNo = readlineSync.question("Are you ready? (yes/no): ")
-
+var yesNo = readlineSync.question(chalk.magenta("Are you ready? (yes/no): "));
+// chalk.green('Right!')
 if (yesNo === "yes") {
-  console.log("\nNote:\n 1.This is the level one of the quiz. \n 2. You have to score 5 to go into level two.\n 3.select A, B, C or D for the answers. \n");
+  console.log(chalk.red("\nNote:\n 1.This is the level one of the quiz. \n 2. You have to score 5 to go into level two.\n 3.select A, B, C or D for the answers. \n"));
 
   for (var i = 0; i < questionAnswersLevelOne.length; i++) {
     playTheGame(questionAnswersLevelOne[i].question, questionAnswersLevelOne[i].answer);
@@ -67,30 +71,30 @@ if (yesNo === "yes") {
     var userAnswer = readlineSync.question(question);
 
     if (userAnswer.toUpperCase() === answer) {
-      console.log("\nYeyyy You Guessed Correct🤩\n");
+      console.log(chalk.green("\nYeyy! You Guessed Correct🤩\n"));
       score++;
     }
     else {
-      console.log("Ohhh You Guessed Wrong😔");
+      console.log(chalk.red("Ohh! You Guessed Wrong😔\n"));
     }
-    console.log("Current Score: ", score, "\n");
+    console.log(chalk.bgGrey("Current Score: ", score, "\n"));
     console.log("------------------------------------\n");
   }
 
   // ***
   var levelTwoScore = 0;
   if (score >= 5) {
-    console.log("CONGRATULATIONS🤩 " + userName.toUpperCase() + " YOU HAVE PASSED THE LEVEL ONE😎 \n \n ")
-    console.log("Welcome to the Level Two of the quiz.");
+    console.log(chalk.blue("CONGRATULATIONS🤩 " + userName.toUpperCase() + " YOU HAVE PASSED THE LEVEL ONE😎 \n \n "))
+    console.log(chalk.magenta("Welcome to the Level Two of the quiz."));
     for (var i = 0; i < questionAnswersLevelTwo.length; i++) {
       levelTwoScore++;
       playTheGame(questionAnswersLevelTwo[i].question, questionAnswersLevelTwo[i].answer);
     }
-    console.log("You Scored: " + levelTwoScore + " in to level Two.");
+    console.log(chalk.cyan("You Scored: " + levelTwoScore + " in to thee level Two.\n"));
   }
   else {
     var requireScore = 5 - score;
-    console.log("You Scored: " + score + "😐 You need " + requireScore + " more points to go into Level Two.");
+    console.log(chalk.cyan("You Scored: " + score + "😐 You need " + requireScore + " more points to go into the Level Two."));
 
   }
 
@@ -98,17 +102,17 @@ if (yesNo === "yes") {
 
 
   if (score > 5) {
-    console.log("Congratulations🤩 You Scored: " + score + "/10");
+    console.log(chalk.green("Congratulations🤩 You Scored: " + score + "/10"));
   }
   else {
-    console.log("You Scored😐: " + score + "/10");
+    console.log(chalk.magenta("You Scored😐: " + score + "/10"));
   }
 
 
 }
 
 else {
-  console.log("\n" + userName.toUpperCase() + " You are out from the game!!!")
+  console.log(chalk.red("\n" + userName.toUpperCase() + " You are out from the game!!!"))
 }
 
 
