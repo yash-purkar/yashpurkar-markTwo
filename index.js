@@ -119,7 +119,7 @@ if (yesNo.toUpperCase() === "YES") {
       console.log(chalk.blue(highScores[i].name + " : " + highScores[i].score + "\n"))
     }
     console.log(chalk.magenta("If you have reached a high point, send a screenshot to me I'll update it."))
-    console.log(chalk.blue.bold("Thank you for playing the game😊"))
+    console.log(chalk.yellow.bold("Thank you for playing the game😊"))
   }
 
   else {
