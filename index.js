@@ -21,7 +21,7 @@ var questionAnswersLevelOne = [
     answer: "A"
   },
   {
-    question: "5.Shortcut key for saving the current document?  \n A : ctrl+s \n B : ctrl+v \n C : ctrl+z \n D : ctrl+s \n \n ",
+    question: "5.Shortcut key for saving the current document?  \n A : ctrl+x \n B : ctrl+v \n C : ctrl+z \n D : ctrl+s \n \n ",
     answer: "D"
   }
 ];
@@ -50,6 +50,17 @@ var questionAnswersLevelTwo = [
 
 ];
 
+var highScores = [
+  {
+    name: "Yash",
+    score: "10/10"
+  },
+  {
+    name: "Rahul",
+    score: "9/10"
+  }
+]
+
 //***
 var score = 0;
 
@@ -58,6 +69,7 @@ console.log(chalk.cyan("\nWelcome " + userName.toUpperCase() + "😊 into quiz a
 
 // exit game or not
 var yesNo = readlineSync.question(chalk.magenta("Are you ready? (yes/no): "));
+
 if (yesNo.toUpperCase() === "YES") {
   console.log(chalk.red("\nNote:\n 1.This is the level one of the quiz. \n 2. You have to score 5 to go into level two.\n 3.select A, B, C or D for the answers. \n"));
 
@@ -102,7 +114,14 @@ if (yesNo.toUpperCase() === "YES") {
 
   if (score > 5) {
     console.log(chalk.green("Congratulations🤩 You Scored: " + score + "/10"));
+    console.log(chalk.yellow("\nHighscores\n"))
+    for (i = 0; i < highScores.length; i++) {
+      console.log(chalk.blue(highScores[i].name + " : " + highScores[i].score + "\n"))
+    }
+    console.log(chalk.magenta("If you have reached a high point, send a screenshot to me I'll update it."))
+    console.log(chalk.blue.bold("Thank you for playing the game😊"))
   }
+
   else {
     console.log(chalk.magenta("You Scored😐: " + score + "/10"));
   }
